@@ -18,11 +18,8 @@ First, clone the repository to your local machine.
 ```bash
 git clone https://github.com/Himashree-KB/SPAD.git
 
-```bash
 cd frontend
 
-```bash
 npm install
 
-```bash
 npm run dev
