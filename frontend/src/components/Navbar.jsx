@@ -33,7 +33,7 @@ export default function Navbar() {
 
   const navItems = [
     { label: "Home", to: "/" },
-    { label: "About", to: "/about" },
+    { label: "About Us", to: "/about" },
     { label: "Impact", to: "/impact" },
     { label: "Get Involved", to: "/involved" },
     { label: "Contact", to: "/contact" },
