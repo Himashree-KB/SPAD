@@ -1,13 +1,20 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import About from './pages/About'
+import Impact from './pages/Impact'
+import Involved from './pages/Involved'
+import Donate from './pages/Donate'
+import Contact from './pages/Contact'
 
-function Home() { return <div className="p-6 mt-7"><Navbar />Home</div> }
-function About() { return <div className="p-6 mt-7"><Navbar />About</div> }
-function Impact() { return <div className="p-6 mt-7"><Navbar />Impact</div> }
-function Involved() { return <div className="p-6 mt-7"><Navbar />Get Involved</div> }
-function Donate() { return <div className="p-6 mt-7"><Navbar />Donate</div> }
-function Contact() { return <div className="p-6 mt-7"><Navbar />Contact</div> }
+
+// function Home() { return <div className="p-6 mt-7"><Navbar />Home</div> }
+// function About() { return <div className="p-6 mt-7"><Navbar />About</div> }
+// function Impact() { return <div className="p-6 mt-7"><Navbar />Impact</div> }
+// function Involved() { return <div className="p-6 mt-7"><Navbar />Get Involved</div> }
+// function Donate() { return <div className="p-6 mt-7"><Navbar />Donate</div> }
+// function Contact() { return <div className="p-6 mt-7"><Navbar />Contact</div> }
 
 export default function App() {
   return (
