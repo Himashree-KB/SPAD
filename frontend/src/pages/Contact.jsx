@@ -74,6 +74,7 @@ export default function Contact() {
 
         {/* Right side: Static Image */}
         <div className="flex items-center justify-center">
+          {/* Replace with an actual image relevant to contact or the NGO */}
           <img
             src="/logo.png"
             alt="SPAD NGO"
