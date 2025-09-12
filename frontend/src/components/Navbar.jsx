@@ -5,10 +5,26 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const navRef = useRef(null);
+  const prevScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 50);
+
+      if (currentScrollY > prevScrollY.current) {
+        // scrolling down
+        setIsVisible(false);
+      } else {
+        // scrolling up
+        setIsVisible(true);
+      }
+
+      prevScrollY.current = currentScrollY;
+    };
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -51,7 +67,9 @@ export default function Navbar() {
         isScrolled
           ? "bg-[#FBFFF1]/90 backdrop-blur-md shadow-md"
           : "bg-[#FBFFF1]/70 backdrop-blur-sm"
-      } rounded-full border border-[#B4C5E4]/50`}
+      } rounded-full border border-[#B4C5E4]/50
+      ${isVisible ? "translate-y-0" : "-translate-y-24"}
+      `}
       style={{ padding: 12 }}
     >
       <div className="relative max-w-7xl mx-auto px-4">
@@ -100,7 +118,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile toggle (ensure high z-index so it's clickable) */}
+          {/* Mobile toggle */}
           <button
             className="md:hidden p-2 text-[#000100] rounded-md focus:outline-none focus:ring-2 focus:ring-[#B4C5E4]"
             onClick={toggleMobile}
@@ -117,7 +135,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile panel - use max-height + overflow to avoid layout issues */}
+        {/* Mobile panel */}
         <div
           id="mobile-menu"
           className={`absolute left-0 right-0 top-full mt-3 rounded-2xl p-4 shadow-lg border border-[#B4C5E4]/50 bg-[#FBFFF1]/95 backdrop-blur-sm transition-all duration-250 overflow-hidden`}
