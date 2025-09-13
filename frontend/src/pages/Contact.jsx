@@ -1,63 +1,182 @@
-import React from "react";
+// src/pages/Contact.jsx
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar";
 
 export default function Contact() {
-  return (
-    <div className="min-h-screen bg-[#FBFFF1]">
-      <Navbar />
+  const [formData, setFormData] = useState({
+    name: "",
 
-      <div className="max-w-7xl mx-auto px-6 py-20 space-y-16">
-        {/* Animated Heading */}
-        <motion.h1
-          initial={{ y: 20, opacity: 0 }}
+    email: "",
+
+    phone: "",
+
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const infoColumnVariants = {
+    hidden: { opacity: 0 },
+
+    visible: {
+      opacity: 1,
+
+      transition: {
+        when: "beforeChildren",
+
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const infoItemVariants = {
+    hidden: { y: 18, opacity: 0 },
+
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.45, ease: "easeOut" },
+    },
+  };
+
+  return (
+    <div className="min-h-screen bg-[#FBFFF1] text-[#000100]">
+      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
+        {/* Header */}
+
+        <motion.header
+          initial={{ y: 16, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold leading-tight text-[#000100] mb-12 text-center md:text-left"
-          style={{ fontFamily: "Roboto, system-ui" }}
+          className="max-w-3xl mb-12 mx-auto text-center md:text-left"
         >
-          Contact <span className="text-[#0000F5]">Us</span>
-        </motion.h1>
+          <h1
+            className="text-4xl md:text-5xl font-bold leading-tight"
+            style={{ fontFamily: "Roboto, system-ui" }}
+          >
+            Get in <span className="text-[#0000F5]">Touch</span>
+          </h1>
 
-        {/* Two-column layout */}
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Left Column: Email, Address, Contacts */}
-          <div className="space-y-10">
-            {/* Email */}
+          <p className="mt-3 text-lg text-[#444]">
+            We're here to help and answer any questions. Reach us via email,
+            phone, or send a message using the form.
+          </p>
+        </motion.header>
+
+        {/* Main grid */}
+
+        <div className="grid md:grid-cols-2 gap-14 items-start">
+          {/* LEFT: Info column (staggered) */}
+
+          <motion.div
+            className="space-y-10 text-center md:text-left"
+            variants={infoColumnVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            {/* Email card */}
+
             <motion.div
-              initial={{ x: -20, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              variants={infoItemVariants}
+              className=" p-6 rounded-2xl"
             >
-              <h2 className="text-2xl font-semibold text-[#000100] mb-2">📧 Email</h2>
+              <h2 className="text-2xl font-semibold mb-3">📧 Email</h2>
+
               <p className="text-[#444]">
-                e-Mail us directly at:{" "}
+                e-Mail us directly at{" "}
                 <a
                   href="mailto:spadorgblr@gmail.com"
-                  className="text-[#0000F5] hover:underline hover:text-[#3D59F5] transition-colors"
+                  className="text-[#0000F5] hover:text-[#3D59F5] underline-offset-2"
                 >
                   spadorgblr@gmail.com
                 </a>
+                .
               </p>
             </motion.div>
 
-            {/* Address + Map */}
+            {/* Key contacts */}
+
             <motion.div
-              initial={{ x: -20, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              variants={infoItemVariants}
+              className=" p-6 rounded-2xl"
             >
-              <h2 className="text-2xl font-semibold text-[#000100] mb-2">📍 Address</h2>
-              <p className="text-[#444] leading-relaxed">
-                SPAD, 1st Floor, Ramakrishna Residency <br />
-                13/2, 9th Cross, Karamchand Layout <br />
-                Lingarajapuram, Bengaluru – 560 084 <br />
+              <h2 className="text-2xl font-semibold mb-4">📞 Key Contacts</h2>
+
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <div className="font-semibold text-[#000100]">
+                    Vijay Kumar B.
+                  </div>
+
+                  <div className="text-sm text-[#444] mb-1">President</div>
+
+                  <a
+                    href="tel:+919448865911"
+                    className="text-[#0000F5] hover:text-[#3D59F5]"
+                  >
+                    +91 94488 65911
+                  </a>
+                </div>
+
+                <div>
+                  <div className="font-semibold text-[#000100]">
+                    Jeevanath Kumar
+                  </div>
+
+                  <div className="text-sm text-[#444] mb-1">Secretary</div>
+
+                  <a
+                    href="tel:+919845618134"
+                    className="text-[#0000F5] hover:text-[#3D59F5]"
+                  >
+                    +91 98456 18134
+                  </a>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <div className="font-semibold text-[#000100]">
+                    Bhavanishankar KK
+                  </div>
+
+                  <div className="text-sm text-[#444] mb-1">Treasurer</div>
+
+                  <a
+                    href="tel:+919448202083"
+                    className="text-[#0000F5] hover:text-[#3D59F5]"
+                  >
+                    +91 94482 02083
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Address + map */}
+
+            <motion.div
+              variants={infoItemVariants}
+              className=" p-6 rounded-2xl"
+            >
+              <h2 className="text-2xl font-semibold mb-3">📍 Our Office</h2>
+
+              <p className="text-[#444] leading-relaxed mb-4">
+                <span className="font-semibold block">
+                  SOCIETY FOR PEOPLE'S ACTION FOR DEVELOPMENT (SPAD)
+                </span>
+                SPAD, 1st Floor, Ramakrishna Residency
+                <br />
+                13/2, 9th Cross, Karamchand Layout
+                <br />
+                Lingarajapuram, Bengaluru - 560 084
+                <br />
                 Karnataka, India
               </p>
 
-              <div className="mt-4 rounded-2xl overflow-hidden shadow-md w-full h-64">
+              <div className="rounded-2xl overflow-hidden border border-gray-200 h-64">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.3732742137186!2d77.61958157992565!3d13.011885254579678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae171c7d4aa071%3A0x2ccbc0fa42e3e700!2s10th%20Cross%20Rd%2C%20Karamchand%20Layout%2C%20Kariyannapalya%2C%20Lingarajapuram%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1757698127932!5m2!1sen!2sin"
                   width="100%"
@@ -66,88 +185,136 @@ export default function Contact() {
                   allowFullScreen=""
                   loading="lazy"
                   title="SPAD Location"
-                ></iframe>
+                />
               </div>
             </motion.div>
+          </motion.div>
 
-            {/* Principal Contacts */}
-            <motion.div
-              initial={{ x: -20, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h2 className="text-2xl font-semibold text-[#000100] mb-3">📞 Principal Contacts</h2>
-              <div className="space-y-4 text-[#444]">
-                <div>
-                  <h3 className="font-medium text-lg">President</h3>
-                  <p>
-                    Vijay Kumar B. -{" "}
-                    <a
-                      href="tel:+919448865911"
-                      className="text-[#0000F5] hover:underline hover:text-[#3D59F5] transition-colors"
-                    >
-                      +91 9448865911
-                    </a>
-                  </p>
-                </div>
+          {/* RIGHT: Form card */}
 
-                <div>
-                  <h3 className="font-medium text-lg">Secretary</h3>
-                  <p>
-                    Jeevanath Kumar -{" "}
-                    <a
-                      href="tel:+919845618134"
-                      className="text-[#0000F5] hover:underline hover:text-[#3D59F5] transition-colors"
-                    >
-                      +91 9845618134
-                    </a>
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-medium text-lg">Treasurer</h3>
-                  <p>
-                    Bhavanishankar KK -{" "}
-                    <a
-                      href="tel:+919448202083"
-                      className="text-[#0000F5] hover:underline hover:text-[#3D59F5] transition-colors"
-                    >
-                      +91 9448202083
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right Column: Styled Google Form */}
           <motion.div
-            initial={{ x: 20, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-2xl shadow-lg overflow-hidden p-6 bg-white"
+            variants={infoItemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="rounded-2xl shadow-lg p-8 md:p-10 bg-white"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#000100] mb-4">
+            <h2 className="text-3xl font-bold mb-2">
               Send a <span className="text-[#0000F5]">Message</span>
             </h2>
+
             <p className="text-[#444] mb-6">
-              Fill out the form below to reach out to us. We’ll get back to you as soon as possible.
+              Fill out the form below and we'll get back to you soon.
             </p>
 
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSecX7PDnBbwTZmfRP0TALAaaeCGGCFD0etkEiEfkjU6YDmjYg/viewform?embedded=true"
-              width="100%"
-              height="700"
-              frameBorder="0"
-              marginHeight="0"
-              marginWidth="0"
-              title="Send a Message"
-              className="hover:scale-[1.01] transition-transform duration-300"
+            <form
+              action="http://formies.dev/submit/7bd95c95-cd49-4a3e-b8c6-67e34276c872"
+              method="POST"
+              className="space-y-4"
             >
-              Loading…
-            </iframe>
+              {/* Name */}
+
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-[#000100] mb-1"
+                >
+                  Full Name
+                </label>
+
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#B4C5E4] focus:border-[#0000F5] transition"
+                  placeholder="Jane Doe"
+                />
+              </div>
+
+              {/* Email */}
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-[#000100] mb-1"
+                >
+                  Email Address
+                </label>
+
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#B4C5E4] focus:border-[#0000F5] transition"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              {/* Phone */}
+
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-[#000100] mb-1"
+                >
+                  Phone Number
+                </label>
+
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autoComplete="tel"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#B4C5E4] focus:border-[#0000F5] transition"
+                  placeholder="+91 12345 67890"
+                />
+              </div>
+
+              {/* Message */}
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-[#000100] mb-1"
+                >
+                  Message
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#B4C5E4] focus:border-[#0000F5] transition"
+                  placeholder="Your message here..."
+                />
+              </div>
+
+              {/* Submit */}
+
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  className="w-full inline-flex justify-center items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-gradient-to-tr from-[#0000F5] to-[#3D59F5] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#0000F5]/30 transition"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+
+            {/* end form */}
           </motion.div>
         </div>
       </div>
