@@ -1,12 +1,12 @@
-// src/components/PartnersSection.jsx
-import React, { useState } from 'react'
+
+import React, { useState } from "react";
 
 /**
  * ImageWithFallback
  * - tries to show an image, on error shows a text fallback badge
  */
 function ImageWithFallback({ src, alt, name }) {
-  const [errored, setErrored] = useState(false)
+  const [errored, setErrored] = useState(false);
 
   if (!src || errored) {
     return (
@@ -17,7 +17,7 @@ function ImageWithFallback({ src, alt, name }) {
       >
         {name}
       </div>
-    )
+    );
   }
 
   return (
@@ -28,144 +28,145 @@ function ImageWithFallback({ src, alt, name }) {
       loading="lazy"
       onError={() => setErrored(true)}
     />
-  )
+  );
 }
 
 /**
  * PartnersSection
- * Self-contained component that renders International + National partners using external logos.
- *
- * Usage:
- *  import PartnersSection from '../components/PartnersSection'
- *  ...
- *  <PartnersSection />
+ * Renders International + National/State partner grids.
+ * Hovering a logo reveals the partner name below it. On small screens the name is always visible.
  */
 export default function PartnersSection() {
   const internationalPartners = [
     {
-      id: 'dfid',
-      name: 'DFID (UK)',
-      logo: 'https://uis.unesco.org/sites/default/files/wysiwyg_media/logo-dfid.png',
-      url: 'https://www.gov.uk/government/organisations/department-for-international-development',
+      id: "dfid",
+      name: "DFID (UK)",
+      logo: "https://uis.unesco.org/sites/default/files/wysiwyg_media/logo-dfid.png",
+      url: "https://www.gov.uk/government/organisations/department-for-international-development",
     },
     {
-      id: 'ejaf',
-      name: 'EJAF (UK)',
-      logo: 'https://afew.org/wp-content/uploads/2023/07/ejaf_2_orange-logo-with-text-with-border.jpg',
-      url: 'https://www.eltonjohnaidsfoundation.org/',
+      id: "ejaf",
+      name: "EJAF (UK)",
+      logo: "https://afew.org/wp-content/uploads/2023/07/ejaf_2_orange-logo-with-text-with-border.jpg",
+      url: "https://www.eltonjohnaidsfoundation.org/",
     },
     {
-      id: 'christian-aid',
-      name: 'Christian Aid (UK)',
-      logo: 'https://www.christianaid.org.uk/themes/custom/grain/logo.svg',
-      url: 'https://www.christianaid.org.uk/',
+      id: "christian-aid",
+      name: "Christian Aid (UK)",
+      logo: "https://www.christianaid.org.uk/themes/custom/grain/logo.svg",
+      url: "https://www.christianaid.org.uk/",
     },
     {
-      id: 'eu',
-      name: 'European Union',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg',
-      url: 'https://europa.eu/',
+      id: "eu",
+      name: "European Union",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg",
+      url: "https://europa.eu/",
     },
     {
-      id: 'oxfam',
-      name: 'Oxfam (UK)',
-      logo: '',
-      url: 'https://www.oxfam.org/',
+      id: "oxfam",
+      name: "Oxfam (UK)",
+      logo: "",
+      url: "https://www.oxfam.org/",
     },
     {
-      id: 'unicef',
-      name: 'UNICEF',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Flag_of_Unicef.svg/1600px-Flag_of_Unicef.svg.png?20250422232509',
-      url: 'https://www.unicef.org/',
+      id: "unicef",
+      name: "UNICEF",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Flag_of_Unicef.svg/1600px-Flag_of_Unicef.svg.png?20250422232509",
+      url: "https://www.unicef.org/",
     },
     {
-      id: 'tcif',
-      name: 'TCIF',
-      logo: '',
-      url: 'https://www.tcif.org/',
+      id: "tcif",
+      name: "TCIF",
+      logo: "",
+      url: "https://www.tcif.org/",
     },
     {
-      id: 'norway',
-      name: 'Norwegian Embassy',
-      logo:
-        'https://europeanwesternbalkans.com/wp-content/uploads/2019/11/Norwegian-Embassy.png',
-      url: 'https://www.norway.no/',
+      id: "norway",
+      name: "Norwegian Embassy",
+      logo: "https://europeanwesternbalkans.com/wp-content/uploads/2019/11/Norwegian-Embassy.png",
+      url: "https://www.norway.no/",
     },
     {
-      id: 'gates',
-      name: 'Bill & Melinda Gates Foundation (USA)',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Bill_%26_Melinda_Gates_Foundation_logo.svg/640px-Bill_%26_Melinda_Gates_Foundation_logo.svg.png',
-      url: 'https://www.gatesfoundation.org/',
+      id: "gates",
+      name: "Bill & Melinda Gates Foundation (USA)",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Bill_%26_Melinda_Gates_Foundation_logo.svg/640px-Bill_%26_Melinda_Gates_Foundation_logo.svg.png",
+      url: "https://www.gatesfoundation.org/",
     },
     {
-      id: 'lebara',
-      name: 'Lebara Foundation (UK)',
-      logo: 'https://www.csrbox.org/organization/org_logo/1501933996Lebara_Foundation_Logo_RGB.jpg',
-      url: 'https://www.lebarafoundation.in/',
+      id: "lebara",
+      name: "Lebara Foundation (UK)",
+      logo: "https://www.csrbox.org/organization/org_logo/1501933996Lebara_Foundation_Logo_RGB.jpg",
+      url: "https://www.lebarafoundation.in/",
     },
     {
-      id: 'iyf',
-      name: 'India Youth Fund (USA)',
-      logo: 'https://youthindiafoundation.com/img/advisors/YIF_LOGO.png',
-      url: 'https://iyfglobal.org/',
+      id: "iyf",
+      name: "India Youth Fund (USA)",
+      logo: "https://youthindiafoundation.com/img/advisors/YIF_LOGO.png",
+      url: "https://iyfglobal.org/",
     },
-  ]
+  ];
 
   const nationalPartners = [
     {
-      id: 'naco',
-      name: 'NACO',
-      logo: 'https://naco.gov.in/sites/all/themes/naco/images/naco_update.png',
-      url: 'https://www.naco.gov.in/',
+      id: "naco",
+      name: "NACO",
+      logo: "https://naco.gov.in/sites/all/themes/naco/images/naco_update.png",
+      url: "https://www.naco.gov.in/",
     },
     {
-      id: 'ksaps',
-      name: 'KSAPS',
-      logo: '',
-      url: 'https://ksaps.karnataka.gov.in/',
+      id: "ksaps",
+      name: "KSAPS",
+      logo: "",
+      url: "https://ksaps.karnataka.gov.in/",
     },
     {
-      id: 'karnataka',
-      name: 'Govt. of Karnataka',
-      logo: 'https://karnataka.gov.in/frontend/assets/img/Seal_of_Karnataka.png',
-      url: 'https://karnataka.gov.in/english',
+      id: "karnataka",
+      name: "Govt. of Karnataka",
+      logo: "https://karnataka.gov.in/frontend/assets/img/Seal_of_Karnataka.png",
+      url: "https://karnataka.gov.in/english",
     },
     {
-      id: 'salaam',
-      name: 'Salaam Bombay Foundation (India)',
-      logo: 'https://www.salaambombay.org/images/SBF-logo.png',
-      url: 'https://salaambombay.org/',
+      id: "salaam",
+      name: "Salaam Bombay Foundation (India)",
+      logo: "https://www.salaambombay.org/images/SBF-logo.png",
+      url: "https://salaambombay.org/",
     },
     {
-      id: 'apollo',
-      name: 'Apollo Tyres Foundation',
-      logo: 'http://corporate.apollotyres.com/content/dam/orbit/apollo-corporate/brand-identity/atl-logo_transparent_208x80_textonly.png',
-      url: 'https://corporate.apollotyres.com/sustainability-and-ethics/initiatives/',
+      id: "apollo",
+      name: "Apollo Tyres Foundation",
+      logo: "http://corporate.apollotyres.com/content/dam/orbit/apollo-corporate/brand-identity/atl-logo_transparent_208x80_textonly.png",
+      url: "https://corporate.apollotyres.com/sustainability-and-ethics/initiatives/",
     },
     {
-      id: 'oracle',
-      name: 'Oracle',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg',
-      url: 'https://www.oracle.com/',
+      id: "oracle",
+      name: "Oracle",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg",
+      url: "https://www.oracle.com/",
     },
-  ]
+  ];
 
   const renderGrid = (items) => (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
       {items.map((p) => (
         <div
           key={p.id}
-          className="flex items-center justify-center p-3 rounded-lg transition hover:shadow-md"
+          className="group flex flex-col items-center justify-center p-3 rounded-lg transition"
         >
           <a
             href={p.url || '#'}
             target={p.url ? '_blank' : undefined}
             rel={p.url ? 'noreferrer' : undefined}
             aria-label={p.name}
-            className=" w-full h-14 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#B4C5E4] rounded"
+            className="w-full h-20 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#B4C5E4] rounded"
           >
             <ImageWithFallback src={p.logo} alt={`${p.name} logo`} name={p.name} />
           </a>
+
+          {/* Name reveal: hidden on hover for desktop, always visible on small screens */}
+          <div className="mt-2 text-sm text-[#000100] text-center opacity-100 sm:opacity-0 sm:translate-y-1 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-200">
+
+            {p.name}
+          </div>
         </div>
       ))}
     </div>
