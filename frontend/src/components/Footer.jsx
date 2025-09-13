@@ -6,7 +6,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/f
 export default function Footer() {
   return (
     <footer className="bg-[#000100] text-gray-300 py-12 mt-20">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Column 1: About */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -59,22 +59,35 @@ export default function Footer() {
           </ul>
         </motion.div>
 
-        {/* Column 3: Contact & Social */}
+        {/* Column 3: Address */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h3 className="text-xl font-semibold text-white mb-4">Get in Touch</h3>
+          <h3 className="text-xl font-semibold text-white mb-4">Address</h3>
           <p className="text-sm">
-            Email:{" "}
+            SPAD, 1st Floor, Ramakrishna Residency 13/2, 9th Cross, Karamchand Layout, Lingarajapuram, Bengaluru – 560 084, Karnataka, India
+          </p>
+        </motion.div>
+
+        {/* Column 4: Email & Social */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <h3 className="text-xl font-semibold text-white mb-4">Contact & Social</h3>
+          <p className="text-sm">
+            <span className="font-semibold">Email:</span>{" "}
             <a href="mailto:spadorgblr@gmail.com" className="hover:text-[#0000F5] transition-colors">
               spadorgblr@gmail.com
             </a>
           </p>
           <p className="text-sm mt-2">
-            Phone:{" "}
+            <span className="font-semibold">Phone:</span>{" "}
             <a href="tel:+919448865911" className="hover:text-[#0000F5] transition-colors">
               +91 94488 65911
             </a>
