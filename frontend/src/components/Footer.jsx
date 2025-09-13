@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -37,34 +37,22 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/projects"
-                className="hover:text-[#0000F5] transition-colors"
-              >
+              <Link to="/projects" className="hover:text-[#0000F5] transition-colors">
                 Projects
               </Link>
             </li>
             <li>
-              <Link
-                to="/impact"
-                className="hover:text-[#0000F5] transition-colors"
-              >
+              <Link to="/impact" className="hover:text-[#0000F5] transition-colors">
                 Our Impact
               </Link>
             </li>
             <li>
-              <Link
-                to="/contact"
-                className="hover:text-[#0000F5] transition-colors"
-              >
+              <Link to="/contact" className="hover:text-[#0000F5] transition-colors">
                 Contact
               </Link>
             </li>
             <li>
-              <Link
-                to="/donate"
-                className="hover:text-[#0000F5] transition-colors"
-              >
+              <Link to="/donate" className="hover:text-[#0000F5] transition-colors">
                 Donate
               </Link>
             </li>
@@ -81,52 +69,30 @@ export default function Footer() {
           <h3 className="text-xl font-semibold text-white mb-4">Get in Touch</h3>
           <p className="text-sm">
             Email:{" "}
-            <a
-              href="mailto:spadorgblr@gmail.com"
-              className="hover:text-[#0000F5] transition-colors"
-            >
+            <a href="mailto:spadorgblr@gmail.com" className="hover:text-[#0000F5] transition-colors">
               spadorgblr@gmail.com
             </a>
           </p>
           <p className="text-sm mt-2">
             Phone:{" "}
-            <a
-              href="tel:+919448865911"
-              className="hover:text-[#0000F5] transition-colors"
-            >
+            <a href="tel:+919448865911" className="hover:text-[#0000F5] transition-colors">
               +91 94488 65911
             </a>
           </p>
 
           {/* Social icons */}
-          <div className="flex space-x-4 mt-6">
-            <a
-              href="#"
-              className="hover:text-[#0000F5] transition-colors"
-              aria-label="Facebook"
-            >
-              <Facebook />
+          <div className="flex space-x-4 mt-6 text-lg">
+            <a href="#" className="hover:text-[#0000F5] transition-colors" aria-label="Facebook">
+              <FaFacebookF />
             </a>
-            <a
-              href="#"
-              className="hover:text-[#0000F5] transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter />
+            <a href="#" className="hover:text-[#0000F5] transition-colors" aria-label="Twitter">
+              <FaTwitter />
             </a>
-            <a
-              href="#"
-              className="hover:text-[#0000F5] transition-colors"
-              aria-label="Instagram"
-            >
-              <Instagram />
+            <a href="#" className="hover:text-[#0000F5] transition-colors" aria-label="Instagram">
+              <FaInstagram />
             </a>
-            <a
-              href="#"
-              className="hover:text-[#0000F5] transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin />
+            <a href="#" className="hover:text-[#0000F5] transition-colors" aria-label="LinkedIn">
+              <FaLinkedinIn />
             </a>
           </div>
         </motion.div>
