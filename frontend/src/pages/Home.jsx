@@ -116,23 +116,33 @@ export default function Home() {
       <div className="border-t border-[#B4C5E4]/60 mx-6 md:mx-20"></div>
 
       {/* Vision */}
+      {/* Vision Section (animated) */}
       <section className="py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto px-6 text-center"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#000100] mb-6">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          {/* Heading + underline */}
+          <motion.h2
+            initial={{ opacity: 0, y: 18, scale: 0.995 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-3xl md:text-4xl font-bold text-[#000100] mb-4"
+            style={{ fontFamily: "Roboto, system-ui" }}
+          >
             Vision
-          </h2>
-          <p className="text-lg md:text-xl text-[#000100] leading-relaxed">
+          </motion.h2>
+
+          {/* Paragraph */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
+            className="text-lg md:text-xl text-[#000100] leading-relaxed"
+          >
             SPAD visualizes itself as a companion of all those who are
             struggling for livelihood, justice and fairness.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
       </section>
+
       <div className="border-t border-[#B4C5E4]/60 mx-6 md:mx-20"></div>
       {/* Impact (component) */}
       <Impact />
