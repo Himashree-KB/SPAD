@@ -1,4 +1,4 @@
-// src/components/PartnersSection.jsx
+
 import React, { useState } from "react";
 
 /**
