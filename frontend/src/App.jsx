@@ -8,12 +8,10 @@ import Involved from './pages/Involved'
 import Donate from './pages/Donate'
 import Contact from './pages/Contact'
 
-
-
-
 export default function App() {
   return (
     <div className="min-h-screen bg-[#FBFFF1]">
+      <Navbar />  {/* <-- Add navbar here so it appears on all pages */}
       
       <main className="max-w-[1100px] mx-auto px-5 py-8">
         <Routes>
