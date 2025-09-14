@@ -43,8 +43,6 @@ export default function Home() {
 
   return (
     <main className="bg-[#FBFFF1] min-h-screen">
-      {/* Navbar */}
-      <Navbar />
 
       {/* Hero Section */}
       <section className="pt-28 pb-20">

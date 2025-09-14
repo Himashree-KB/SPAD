@@ -9,6 +9,7 @@ import Impact from './pages/Impact'
 import Involved from './pages/Involved'
 import Donate from './pages/Donate'
 import Contact from './pages/Contact'
+import ThankYouMess from './pages/ThankYouMess'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/involved" element={<Involved />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/thanks" element={<ThankYouMess />} />
         </Routes>
       </main>
 
