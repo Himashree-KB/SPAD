@@ -6,7 +6,6 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
 import Impact from './pages/Impact'
-import Involved from './pages/Involved'
 import Donate from './pages/Donate'
 import Contact from './pages/Contact'
 import ThankYouMess from './pages/ThankYouMess'
@@ -23,7 +22,6 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/impact" element={<Impact />} />
-          <Route path="/involved" element={<Involved />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/thanks" element={<ThankYouMess />} />
