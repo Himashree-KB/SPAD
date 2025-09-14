@@ -51,7 +51,6 @@ export default function Navbar() {
     { label: "Home", to: "/" },
     { label: "About Us", to: "/about" },
     { label: "Impact", to: "/impact" },
-    { label: "Get Involved", to: "/involved" },
     { label: "Contact", to: "/contact" },
   ];
 

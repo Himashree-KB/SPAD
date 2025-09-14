@@ -5,29 +5,22 @@ import { motion } from "framer-motion";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
-
     email: "",
-
     phone: "",
-
     message: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const infoColumnVariants = {
     hidden: { opacity: 0 },
-
     visible: {
       opacity: 1,
-
       transition: {
         when: "beforeChildren",
-
         staggerChildren: 0.12,
       },
     },
@@ -35,7 +28,6 @@ export default function Contact() {
 
   const infoItemVariants = {
     hidden: { y: 18, opacity: 0 },
-
     visible: {
       y: 0,
       opacity: 1,
@@ -47,7 +39,6 @@ export default function Contact() {
     <div className="min-h-screen bg-[#FBFFF1] text-[#000100]">
       <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
         {/* Header */}
-
         <motion.header
           initial={{ y: 16, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -60,7 +51,6 @@ export default function Contact() {
           >
             Get in <span className="text-[#0000F5]">Touch</span>
           </h1>
-
           <p className="mt-3 text-lg text-[#444]">
             We're here to help and answer any questions. Reach us via email,
             phone, or send a message using the form.
@@ -68,10 +58,8 @@ export default function Contact() {
         </motion.header>
 
         {/* Main grid */}
-
         <div className="grid md:grid-cols-2 gap-14 items-start">
           {/* LEFT: Info column (staggered) */}
-
           <motion.div
             className="space-y-10 text-center md:text-left"
             variants={infoColumnVariants}
@@ -80,13 +68,11 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.3 }}
           >
             {/* Email card */}
-
             <motion.div
               variants={infoItemVariants}
               className=" p-6 rounded-2xl"
             >
               <h2 className="text-2xl font-semibold mb-3">📧 Email</h2>
-
               <p className="text-[#444]">
                 e-Mail us directly at{" "}
                 <a
@@ -100,21 +86,17 @@ export default function Contact() {
             </motion.div>
 
             {/* Key contacts */}
-
             <motion.div
               variants={infoItemVariants}
               className=" p-6 rounded-2xl"
             >
               <h2 className="text-2xl font-semibold mb-4">📞 Key Contacts</h2>
-
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <div className="font-semibold text-[#000100]">
                     Vijay Kumar B.
                   </div>
-
                   <div className="text-sm text-[#444] mb-1">President</div>
-
                   <a
                     href="tel:+919448865911"
                     className="text-[#0000F5] hover:text-[#3D59F5]"
@@ -122,14 +104,11 @@ export default function Contact() {
                     +91 94488 65911
                   </a>
                 </div>
-
                 <div>
                   <div className="font-semibold text-[#000100]">
                     Jeevanath Kumar
                   </div>
-
                   <div className="text-sm text-[#444] mb-1">Secretary</div>
-
                   <a
                     href="tel:+919845618134"
                     className="text-[#0000F5] hover:text-[#3D59F5]"
@@ -137,14 +116,11 @@ export default function Contact() {
                     +91 98456 18134
                   </a>
                 </div>
-
                 <div className="sm:col-span-2">
                   <div className="font-semibold text-[#000100]">
                     Bhavanishankar KK
                   </div>
-
                   <div className="text-sm text-[#444] mb-1">Treasurer</div>
-
                   <a
                     href="tel:+919448202083"
                     className="text-[#0000F5] hover:text-[#3D59F5]"
@@ -156,13 +132,11 @@ export default function Contact() {
             </motion.div>
 
             {/* Address + map */}
-
             <motion.div
               variants={infoItemVariants}
               className=" p-6 rounded-2xl"
             >
               <h2 className="text-2xl font-semibold mb-3">📍 Our Office</h2>
-
               <p className="text-[#444] leading-relaxed mb-4">
                 <span className="font-semibold block">
                   SOCIETY FOR PEOPLE'S ACTION FOR DEVELOPMENT (SPAD)
@@ -175,7 +149,6 @@ export default function Contact() {
                 <br />
                 Karnataka, India
               </p>
-
               <div className="rounded-2xl overflow-hidden border border-gray-200 h-64">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.3732742137186!2d77.61958157992565!3d13.011885254579678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae171c7d4aa071%3A0x2ccbc0fa42e3e700!2s10th%20Cross%20Rd%2C%20Karamchand%20Layout%2C%20Kariyannapalya%2C%20Lingarajapuram%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1757698127932!5m2!1sen!2sin"
@@ -191,7 +164,6 @@ export default function Contact() {
           </motion.div>
 
           {/* RIGHT: Form card */}
-
           <motion.div
             variants={infoItemVariants}
             initial="hidden"
@@ -202,18 +174,24 @@ export default function Contact() {
             <h2 className="text-3xl font-bold mb-2">
               Send a <span className="text-[#0000F5]">Message</span>
             </h2>
-
             <p className="text-[#444] mb-6">
               Fill out the form below and we'll get back to you soon.
             </p>
 
             <form
-              action="http://formies.dev/submit/7bd95c95-cd49-4a3e-b8c6-67e34276c872"
+              action="https://api.web3forms.com/submit"
               method="POST"
               className="space-y-4"
             >
-              {/* Name */}
+              {/* --- WEB3FORMS HIDDEN INPUTS --- */}
+              <input type="hidden" name="apikey" value="a6672672-f7de-4dd3-809a-c59e71c394b6" />
+              <input type="hidden" name="subject" value="New Contact Us Submission from SPAD Website" />
+              {/* IMPORTANT: Replace the value below with your full success page URL */}
+              <input type="hidden" name="redirect" value="http://localhost:5173/thanks" />
+              {/* --- END OF HIDDEN INPUTS --- */}
 
+
+              {/* Name */}
               <div>
                 <label
                   htmlFor="name"
@@ -221,7 +199,6 @@ export default function Contact() {
                 >
                   Full Name
                 </label>
-
                 <input
                   id="name"
                   name="name"
@@ -235,7 +212,6 @@ export default function Contact() {
               </div>
 
               {/* Email */}
-
               <div>
                 <label
                   htmlFor="email"
@@ -243,7 +219,6 @@ export default function Contact() {
                 >
                   Email Address
                 </label>
-
                 <input
                   id="email"
                   name="email"
@@ -258,7 +233,6 @@ export default function Contact() {
               </div>
 
               {/* Phone */}
-
               <div>
                 <label
                   htmlFor="phone"
@@ -266,7 +240,6 @@ export default function Contact() {
                 >
                   Phone Number
                 </label>
-
                 <input
                   id="phone"
                   name="phone"
@@ -281,7 +254,6 @@ export default function Contact() {
               </div>
 
               {/* Message */}
-
               <div>
                 <label
                   htmlFor="message"
@@ -289,7 +261,6 @@ export default function Contact() {
                 >
                   Message
                 </label>
-
                 <textarea
                   id="message"
                   name="message"
@@ -303,7 +274,6 @@ export default function Contact() {
               </div>
 
               {/* Submit */}
-
               <div className="pt-2">
                 <button
                   type="submit"
@@ -313,7 +283,6 @@ export default function Contact() {
                 </button>
               </div>
             </form>
-
             {/* end form */}
           </motion.div>
         </div>

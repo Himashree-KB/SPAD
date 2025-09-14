@@ -48,7 +48,6 @@ export default function About() {
 
   return (
     <main className="bg-[#FBFFF1] min-h-screen">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="pt-28 pb-20 max-w-7xl mx-auto px-6">
