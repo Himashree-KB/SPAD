@@ -186,7 +186,7 @@ export default function Impact() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 space-y-12">
+      <div className="max-w-[1100px] mx-auto px-6 py-24 md:py-32 space-y-12">
         {/* Controls + Current Projects Title */}
         <section className="space-y-6">
           <h2 className="text-3xl font-bold">Current Projects</h2>
