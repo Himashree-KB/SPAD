@@ -17,7 +17,7 @@ export default function App() {
       <Navbar />
 
       {/* Main content */}
-      <main className="flex-grow max-w-[1100px] mx-auto px-5 py-8">
+      <main className="flex-grow px-5 py-8">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
