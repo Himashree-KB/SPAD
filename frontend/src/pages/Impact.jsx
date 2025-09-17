@@ -171,7 +171,7 @@ export default function Impact() {
   const closeProject = () => setSelected(null);
 
   return (
-    <main className="min-h-screen bg-[#FBFFF1] text-[#000100]">
+    <main className="min-h-screen bg-[#FBFFF1] text-[#000100] max-w-[1100px] mx-auto">
 
       <div className="max-w-7xl mx-auto px-6 py-20 space-y-12">
         <section>
