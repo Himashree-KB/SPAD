@@ -9,7 +9,7 @@ const PROJECTS = [
     category: "Child development",
     short:
       "Implemented in 25 government and municipal schools in Bangalore; forms student leadership to create tobacco-free schools.",
-    image: "/ngoStock.png", // <-- UPDATED IMAGE
+    image: "/ngoStock.png",
     stats: { direct_students: 2562, reach_estimate: 24000, schools: 25 },
     objectives: [
       "Make schools tobacco-free through student leadership.",
@@ -34,7 +34,7 @@ const PROJECTS = [
     category: "Skill development",
     short:
       "Skills programme in 7 schools covering ~1,200 9th-grade students to deliver trade skills and life skills.",
-    image: "/ngoStock.png", // <-- UPDATED IMAGE
+    image: "/ngoStock.png",
     stats: { students: 1200, schools: 7, trades: 7 },
     objectives: [
       "Provide 21st-century employability skills across 7 trades.",
@@ -59,7 +59,7 @@ const PROJECTS = [
     category: "Public health",
     short:
       "Peer-led HIV prevention and mitigation work with ~1,650 female sex workers across 98 hotspots in Bangalore.",
-    image: "/ngoStock.png", // <-- UPDATED IMAGE
+    image: "/ngoStock.png",
     stats: { beneficiaries: 1650, hotspots: 98 },
     objectives: [
       "Reduce HIV & STI among sex workers through peer-led programming.",
@@ -84,7 +84,7 @@ const PROJECTS = [
     category: "Public health",
     short:
       "A comprehensive HIV/STI prevention and rehabilitation programme for 600 Injecting Drug Users in Bangalore.",
-    image: "/ngoStock.png", // <-- UPDATED IMAGE
+    image: "/ngoStock.png",
     stats: { beneficiaries: 600 },
     objectives: [
       "Reduce the risk of contracting HIV through needle sharing.",
@@ -109,7 +109,7 @@ const PROJECTS = [
     category: "Public health",
     short:
       "A focused healthcare project for ~3,600 truck drivers, helpers, and the allied transport community.",
-    image: "/ngoStock.png", // <-- UPDATED IMAGE
+    image: "/ngoStock.png",
     stats: { annual_reach: 3600 },
     objectives: [
       "Provide healthcare services to the trucking community.",
@@ -128,10 +128,8 @@ const PROJECTS = [
   },
 ];
 
-// The categories are now dynamically generated from the PROJECTS array
 const CATEGORIES = ["All", ...Array.from(new Set(PROJECTS.map((p) => p.category)))];
 
-// *** Social Impact Highlights ***
 const HIGHLIGHTS = [
   {
     title: "Healthy Highways Project (HHP)",
@@ -152,7 +150,6 @@ export default function Impact() {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(null);
 
-  // compute filtered projects
   const filtered = useMemo(() => {
     return PROJECTS.filter((p) => {
       if (filter !== "All" && p.category !== filter) return false;
@@ -170,17 +167,26 @@ export default function Impact() {
   const closeProject = () => setSelected(null);
 
   return (
-    <main className="min-h-screen bg-[#FBFFF1] text-[#000100] max-w-[1100px] mx-auto">
-      {/* Changed py-20 to py-24 md:py-32 for consistent spacing */}
-      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 space-y-12">
-        <section>
-          <h1 className="text-4xl md:text-5xl font-bold">
+    <main className="min-h-screen bg-[#FBFFF1] text-[#000100]">
+      {/* Hero Section with Background Image */}
+      <section className="relative w-screen h-screen">
+        <img
+          src="/ngoStock.png"
+          alt="Projects and Impact"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 flex flex-col justify-center h-full max-w-[1100px] mx-auto px-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-white">
             Our Projects & <span className="text-[#0000F5]">Impact</span>
           </h1>
-          <p className="text-lg text-[#444] mt-3">
-            Click a card to view detailed objectives, activities and indicators.
+          <p className="text-lg md:text-xl text-gray-200 mt-4 max-w-2xl">
+            Click a card to view detailed objectives, activities, and indicators.
           </p>
-        </section>
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 space-y-12">
         {/* Controls + Current Projects Title */}
         <section className="space-y-6">
           <h2 className="text-3xl font-bold">Current Projects</h2>
@@ -214,12 +220,7 @@ export default function Impact() {
             </div>
           </div>
         </section>
-        {/* If PROJECTS is empty show a helpful message */}
-        {PROJECTS.length === 0 && (
-          <div className="bg-[#fefffa] rounded-2xl p-6 text-[#444]">
-            No projects are defined yet. Add projects to the PROJECTS array in Impact.jsx.
-          </div>
-        )}
+
         {/* Projects grid */}
         <section>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -229,7 +230,6 @@ export default function Impact() {
                   key={p.id}
                   className="bg-[#fefffa] rounded-2xl overflow-hidden shadow-sm transform transition duration-200 hover:-translate-y-1 hover:shadow-lg flex flex-col"
                 >
-                  {/* Use a semantic button for the clickable card to improve accessibility */}
                   <button
                     type="button"
                     onClick={() => openProject(p)}
@@ -242,7 +242,7 @@ export default function Impact() {
                         alt={p.title}
                         onError={(e) => {
                           e.currentTarget.onerror = null;
-                          e.currentTarget.src = "/img/ngoStock.png"; // Fallback
+                          e.currentTarget.src = "/img/ngoStock.png";
                         }}
                         className="w-full h-full object-cover"
                       />
@@ -255,9 +255,7 @@ export default function Impact() {
                         <h3 className="text-lg font-semibold text-[#000100] mt-1">
                           {p.title}
                         </h3>
-                        <p className="text-sm text-[#444] mt-3">
-                          {p.short}
-                        </p>
+                        <p className="text-sm text-[#444] mt-3">{p.short}</p>
                       </div>
                       <div className="mt-5">
                         {p.stats && Object.keys(p.stats).length > 0 && (
@@ -295,6 +293,7 @@ export default function Impact() {
             )}
           </div>
         </section>
+
         {/* Social Impact Highlights Section */}
         <section className="space-y-6">
           <h2 className="text-3xl font-bold">Our Legacy of Impact</h2>
@@ -304,12 +303,15 @@ export default function Impact() {
                 key={item.title}
                 className="bg-[#fefffa] rounded-2xl p-6 border border-[#E6E6E6] shadow-sm"
               >
-                <h3 className="text-lg font-semibold text-[#0000F5]">{item.title}</h3>
+                <h3 className="text-lg font-semibold text-[#0000F5]">
+                  {item.title}
+                </h3>
                 <p className="text-sm text-[#444] mt-3">{item.text}</p>
               </div>
             ))}
           </div>
         </section>
+
         {/* CTA */}
         <section className="pt-6">
           <div className="rounded-2xl bg-[#B4C5E4]/30 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -318,8 +320,7 @@ export default function Impact() {
                 Want to support a project?
               </h4>
               <p className="text-[#444] mt-2">
-                Partner with us, donate or volunteer to expand impact across
-                Karnataka.
+                Partner with us, donate or volunteer to expand impact across Karnataka.
               </p>
             </div>
             <div className="flex gap-3">
@@ -339,7 +340,8 @@ export default function Impact() {
           </div>
         </section>
       </div>
-      {/* Detail modal (with mobile improvements) */}
+
+      {/* Detail Modal */}
       <AnimatePresence>
         {selected && (
           <motion.div
@@ -378,7 +380,7 @@ export default function Impact() {
                     alt={selected.title}
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = "/img/ngoStock.png"; // Fallback
+                      e.currentTarget.src = "/img/ngoStock.png";
                     }}
                     className="w-full h-56 object-cover rounded-lg mb-4"
                   />
@@ -429,7 +431,7 @@ export default function Impact() {
                     </ul>
                   </div>
                   <div>
-                    <div className="font-semibold mb-2">Key indicators</div>
+                    <div className="font-semibold mb-2">Indicators</div>
                     <ul className="list-disc list-inside text-sm text-[#444]">
                       {selected.indicators && selected.indicators.length > 0 ? (
                         selected.indicators.map((i, idx) => <li key={idx}>{i}</li>)
@@ -439,20 +441,6 @@ export default function Impact() {
                     </ul>
                   </div>
                 </div>
-              </div>
-              <div className="mt-6 flex flex-col sm:flex-row sm:justify-end gap-3">
-                <a
-                  href="/contact"
-                  className="px-5 py-2 rounded-full border border-[#0000F5] text-[#0000F5] hover:bg-[#0000F5]/10 text-center"
-                >
-                  Discuss Partnership
-                </a>
-                <a
-                  href="/donate"
-                  className="px-5 py-2 rounded-full bg-gradient-to-tr from-[#0000F5] to-[#3D59F5] text-white text-center"
-                >
-                  Support this project
-                </a>
               </div>
             </motion.div>
           </motion.div>
