@@ -7,9 +7,8 @@ export default function About() {
 
   const Section = ({ title, children, imageLeft = true, bg = null }) => (
     <section
-      className={`py-20 text-left max-w-6xl mx-auto px-6 mt-12 flex flex-col md:flex-row items-center gap-10 ${
-        bg ? "bg-[#B4C5E4]/30 rounded-4xl" : ""
-      } ${imageLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+      className={`py-20 text-left max-w-6xl mx-auto px-6 mt-12 flex flex-col md:flex-row items-center gap-10 ${bg ? "bg-[#B4C5E4]/30 rounded-4xl" : ""
+        } ${imageLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
     >
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
@@ -95,6 +94,43 @@ export default function About() {
       </section>
 
       {/* 🔹 Sections */}
+      <Section title="About SPAD" bg={true} hideImage={true}>
+        {/* Block 1: Image left, text right */}
+        <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
+          <img
+            src={stockImage}
+            alt="SPAD Image 1"
+            className="w-full md:w-1/2 rounded-2xl shadow-lg object-cover hover:scale-105 transition-transform duration-300"
+          />
+          <p className="text-lg text-[#000100]/90 leading-relaxed md:w-1/2">
+            Society for People’s Action for Development (SPAD), an NGO, was founded in 1993, by alumni of School of Social Work, Roshni Nilaya, Mangalore. It works as a grassroots organisation to support vulnerable communities by participatory and empowering process of intervention.
+          </p>
+        </div>
+
+        {/* Block 2: Image right, text left */}
+        <div className="flex flex-col md:flex-row-reverse items-center gap-6 mb-6">
+          <img
+            src={stockImage}
+            alt="SPAD Image 2"
+            className="w-full md:w-1/2 rounded-2xl shadow-lg object-cover hover:scale-105 transition-transform duration-300"
+          />
+          <p className="text-lg text-[#000100]/90 leading-relaxed md:w-1/2">
+            SPAD had implemented 20 different projects covering 9 districts of Karnataka on HIV/AIDS prevention and other public health issues, funded by bi-lateral and multi-lateral donors.
+          </p>
+        </div>
+
+        {/* Block 3: Image left, text right */}
+        <div className="flex flex-col md:flex-row items-center gap-6">
+          <img
+            src={stockImage}
+            alt="SPAD Image 3"
+            className="w-full md:w-1/2 rounded-2xl shadow-lg object-cover hover:scale-105 transition-transform duration-300"
+          />
+          <p className="text-lg text-[#000100]/90 leading-relaxed md:w-1/2">
+            SPAD was largely responsible to initiate Network for AIDS Prevention – Karnataka, a network of NGOs implementing HIV related projects. SPAD was also represented in the Executive Committee of Karnataka AIDS Prevention Society (KSAPS), which was the highest decision making body in HIV prevention programme of the state. SPAD hosted the Secretariat of Jana Arogya Andolana – Karnataka (JAA-K), a People Health Movement in India, and is a member of Campaign Against Child Labour – Karnataka (CACL-K) and Karnataka Gramodaya Mission.
+          </p>
+        </div>
+      </Section>
       <Section title="Vision & Mission" imageLeft={true} bg={true}>
         <p className="text-lg text-[#000100]/90 leading-relaxed">
           Creating a just and humane society by empowering vulnerable
