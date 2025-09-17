@@ -36,7 +36,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FBFFF1] text-[#000100]">
+    <div className="min-h-screen bg-[#FBFFF1] text-[#000100] max-w-[1100px] mx-auto">
       <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
         {/* Header */}
         <motion.header
