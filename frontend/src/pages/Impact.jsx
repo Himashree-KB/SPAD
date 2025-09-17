@@ -2,7 +2,6 @@ import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiXMark } from "react-icons/hi2";
 
-
 const PROJECTS = [
   {
     id: "tobacco",
@@ -172,13 +171,16 @@ export default function Impact() {
 
   return (
     <main className="min-h-screen bg-[#FBFFF1] text-[#000100] max-w-[1100px] mx-auto">
-
-      <div className="max-w-7xl mx-auto px-6 py-20 space-y-12">
+      {/* Changed py-20 to py-24 md:py-32 for consistent spacing */}
+      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 space-y-12">
         <section>
-          <h1 className="text-4xl md:text-5xl font-bold">Our Projects & Impact</h1>
-          <p className="text-lg text-[#444] mt-3">Click a card to view detailed objectives, activities and indicators.</p>
+          <h1 className="text-4xl md:text-5xl font-bold">
+            Our Projects & <span className="text-[#0000F5]">Impact</span>
+          </h1>
+          <p className="text-lg text-[#444] mt-3">
+            Click a card to view detailed objectives, activities and indicators.
+          </p>
         </section>
-
         {/* Controls + Current Projects Title */}
         <section className="space-y-6">
           <h2 className="text-3xl font-bold">Current Projects</h2>
@@ -198,7 +200,6 @@ export default function Impact() {
                 </button>
               ))}
             </div>
-
             <div className="flex items-center gap-3 w-full md:w-auto">
               <input
                 type="search"
@@ -207,16 +208,18 @@ export default function Impact() {
                 onChange={(e) => setQuery(e.target.value)}
                 className="w-full md:w-72 px-4 py-2 rounded-lg border border-gray-200 bg-[#fefffa] focus:outline-none focus:ring-2 focus:ring-[#B4C5E4]/70"
               />
-              <div className="text-sm text-[#444]">{filtered.length} / {PROJECTS.length} projects</div>
+              <div className="text-sm text-[#444]">
+                {filtered.length} / {PROJECTS.length} projects
+              </div>
             </div>
           </div>
         </section>
-
         {/* If PROJECTS is empty show a helpful message */}
         {PROJECTS.length === 0 && (
-          <div className="bg-[#fefffa] rounded-2xl p-6 text-[#444]">No projects are defined yet. Add projects to the PROJECTS array in Impact.jsx.</div>
+          <div className="bg-[#fefffa] rounded-2xl p-6 text-[#444]">
+            No projects are defined yet. Add projects to the PROJECTS array in Impact.jsx.
+          </div>
         )}
-
         {/* Projects grid */}
         <section>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -246,17 +249,28 @@ export default function Impact() {
                     </div>
                     <div className="p-5 flex flex-col flex-1">
                       <div className="flex-1">
-                        <span className="text-xs text-[#0000F5] font-medium uppercase tracking-wider">{p.category}</span>
-                        <h3 className="text-lg font-semibold text-[#000100] mt-1">{p.title}</h3>
-                        <p className="text-sm text-[#444] mt-3">{p.short}</p>
+                        <span className="text-xs text-[#0000F5] font-medium uppercase tracking-wider">
+                          {p.category}
+                        </span>
+                        <h3 className="text-lg font-semibold text-[#000100] mt-1">
+                          {p.title}
+                        </h3>
+                        <p className="text-sm text-[#444] mt-3">
+                          {p.short}
+                        </p>
                       </div>
                       <div className="mt-5">
                         {p.stats && Object.keys(p.stats).length > 0 && (
                           <div className="flex flex-wrap gap-2">
                             {Object.entries(p.stats).map(([key, value]) => (
-                              <div key={key} className="text-xs bg-[#FBFFF1] border border-[#E6E6E6] px-2 py-1 rounded-full">
+                              <div
+                                key={key}
+                                className="text-xs bg-[#FBFFF1] border border-[#E6E6E6] px-2 py-1 rounded-full"
+                              >
                                 <strong>{value}</strong>
-                                <span className="ml-1 text-[#666] capitalize">{key.replace(/_/g, " ")}</span>
+                                <span className="ml-1 text-[#666] capitalize">
+                                  {key.replace(/_/g, " ")}
+                                </span>
                               </div>
                             ))}
                           </div>
@@ -265,7 +279,9 @@ export default function Impact() {
                           <span className="truncate" title={p.partners?.join(", ")}>
                             {p.partners?.slice(0, 2).join(", ")}
                           </span>
-                          <span className="text-[#3D59F5] font-medium whitespace-nowrap">View details →</span>
+                          <span className="text-[#3D59F5] font-medium whitespace-nowrap">
+                            View details →
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -273,43 +289,56 @@ export default function Impact() {
                 </article>
               ))
             ) : (
-              <div className="col-span-full text-center text-[#444] py-12">No projects matched your search/filter.</div>
+              <div className="col-span-full text-center text-[#444] py-12">
+                No projects matched your search/filter.
+              </div>
             )}
           </div>
         </section>
-
         {/* Social Impact Highlights Section */}
         <section className="space-y-6">
           <h2 className="text-3xl font-bold">Our Legacy of Impact</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {HIGHLIGHTS.map((item) => (
-              <div key={item.title} className="bg-[#fefffa] rounded-2xl p-6 border border-[#E6E6E6] shadow-sm">
+              <div
+                key={item.title}
+                className="bg-[#fefffa] rounded-2xl p-6 border border-[#E6E6E6] shadow-sm"
+              >
                 <h3 className="text-lg font-semibold text-[#0000F5]">{item.title}</h3>
                 <p className="text-sm text-[#444] mt-3">{item.text}</p>
               </div>
             ))}
           </div>
         </section>
-
         {/* CTA */}
         <section className="pt-6">
           <div className="rounded-2xl bg-[#B4C5E4]/30 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h4 className="text-xl font-bold text-[#000100]">Want to support a project?</h4>
-              <p className="text-[#444] mt-2">Partner with us, donate or volunteer to expand impact across Karnataka.</p>
+              <h4 className="text-xl font-bold text-[#000100]">
+                Want to support a project?
+              </h4>
+              <p className="text-[#444] mt-2">
+                Partner with us, donate or volunteer to expand impact across
+                Karnataka.
+              </p>
             </div>
             <div className="flex gap-3">
-              <a href="/donate" className="px-6 py-3 rounded-full bg-gradient-to-tr from-[#0000F5] to-[#3D59F5] text-white">
+              <a
+                href="/donate"
+                className="px-6 py-3 rounded-full bg-gradient-to-tr from-[#0000F5] to-[#3D59F5] text-white"
+              >
                 Donate
               </a>
-              <a href="/contact" className="px-6 py-3 rounded-full border border-[#0000F5] text-[#0000F5]">
+              <a
+                href="/contact"
+                className="px-6 py-3 rounded-full border border-[#0000F5] text-[#0000F5]"
+              >
                 Get in touch
               </a>
             </div>
           </div>
         </section>
       </div>
-
       {/* Detail modal (with mobile improvements) */}
       <AnimatePresence>
         {selected && (
@@ -336,12 +365,12 @@ export default function Impact() {
               >
                 <HiXMark className="w-6 h-6" />
               </button>
-
               <div>
-                <h2 id="modal-title" className="text-2xl font-bold mb-1 pr-10">{selected.title}</h2>
+                <h2 id="modal-title" className="text-2xl font-bold mb-1 pr-10">
+                  {selected.title}
+                </h2>
                 <div className="text-sm text-[#666] mb-4">{selected.category}</div>
               </div>
-
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <img
@@ -354,65 +383,74 @@ export default function Impact() {
                     className="w-full h-56 object-cover rounded-lg mb-4"
                   />
                   <p className="text-[#444] mb-3">{selected.short}</p>
-
                   {selected.stats && (
                     <div className="flex flex-wrap gap-3 mb-4">
                       {Object.entries(selected.stats).map(([k, v]) => (
-                        <div key={k} className="bg-[#FBFFF1] border border-gray-200 rounded-full px-3 py-1 text-sm">
+                        <div
+                          key={k}
+                          className="bg-[#FBFFF1] border border-gray-200 rounded-full px-3 py-1 text-sm"
+                        >
                           <strong className="text-[#0000F5]">{v}</strong>{" "}
-                          <span className="text-[#666] ml-2 text-xs capitalize">{k.replace(/_/g, " ")}</span>
+                          <span className="text-[#666] ml-2 text-xs capitalize">
+                            {k.replace(/_/g, " ")}
+                          </span>
                         </div>
                       ))}
                     </div>
                   )}
-
                   <div className="mb-4">
                     <div className="font-semibold mb-2">Partners</div>
-                    <div className="text-sm text-[#444]">{selected.partners?.length ? selected.partners.join(", ") : "—"}</div>
+                    <div className="text-sm text-[#444]">
+                      {selected.partners?.length
+                        ? selected.partners.join(", ")
+                        : "—"}
+                    </div>
                   </div>
                 </div>
-
                 <div>
                   <div className="mb-4">
                     <div className="font-semibold mb-2">Objectives</div>
                     <ul className="list-disc list-inside text-sm text-[#444]">
                       {selected.objectives && selected.objectives.length > 0 ? (
-                        selected.objectives.map((o, idx) => (
-                          <li key={idx}>{o}</li>
-                        ))
-                      ) : (<li>No objectives listed.</li>)}
+                        selected.objectives.map((o, idx) => <li key={idx}>{o}</li>)
+                      ) : (
+                        <li>No objectives listed.</li>
+                      )}
                     </ul>
                   </div>
-
                   <div className="mb-4">
                     <div className="font-semibold mb-2">Activities</div>
                     <ul className="list-disc list-inside text-sm text-[#444]">
                       {selected.activities && selected.activities.length > 0 ? (
-                        selected.activities.map((a, idx) => (
-                          <li key={idx}>{a}</li>
-                        ))
-                      ) : (<li>No activities listed.</li>)}
+                        selected.activities.map((a, idx) => <li key={idx}>{a}</li>)
+                      ) : (
+                        <li>No activities listed.</li>
+                      )}
                     </ul>
                   </div>
-
                   <div>
                     <div className="font-semibold mb-2">Key indicators</div>
                     <ul className="list-disc list-inside text-sm text-[#444]">
                       {selected.indicators && selected.indicators.length > 0 ? (
-                        selected.indicators.map((i, idx) => (
-                          <li key={idx}>{i}</li>
-                        ))
-                      ) : (<li>No indicators listed.</li>)}
+                        selected.indicators.map((i, idx) => <li key={idx}>{i}</li>)
+                      ) : (
+                        <li>No indicators listed.</li>
+                      )}
                     </ul>
                   </div>
                 </div>
               </div>
-
               <div className="mt-6 flex flex-col sm:flex-row sm:justify-end gap-3">
-                <a href="/contact" className="px-5 py-2 rounded-full border border-[#0000F5] text-[#0000F5] hover:bg-[#0000F5]/10 text-center">
+                <a
+                  href="/contact"
+                  className="px-5 py-2 rounded-full border border-[#0000F5] text-[#0000F5] hover:bg-[#0000F5]/10 text-center"
+                >
                   Discuss Partnership
                 </a>
-                <a href="/donate" className="px-5 py-2 rounded-full bg-gradient-to-tr from-[#0000F5] to-[#3D59F5] text-white text-center">
+                <a
+                  href="/donate"
+                  className="px-5 py-2 rounded-full bg-gradient-to-tr from-[#0000F5] to-[#3D59F5] text-white text-center"
+                >
                   Support this project
                 </a>
               </div>
