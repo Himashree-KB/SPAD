@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 
 export default function About() {
   const stockImage = "/ngoStock.png"; // same stock image for all sections
+
   const Section = ({ title, children, imageLeft = true, bg = null }) => (
     <section
       className={`py-20 text-left max-w-6xl mx-auto px-6 mt-12 flex flex-col md:flex-row items-center gap-10 ${
@@ -48,44 +49,59 @@ export default function About() {
   return (
     <main className="bg-[#FBFFF1] min-h-screen">
       <Navbar />
-      {/* Hero Section */}
-      <section className="relative w-screen h-screen">
-        {/* Full-screen background image */}
+
+      {/* 🔹 Improved Hero Section */}
+      <section className="relative w-screen h-screen flex items-center">
         <img
           src="/ngoStock.png"
           alt="About SPAD"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Overlay for readability */}
-        <div className="absolute inset-0 bg-black/40" />
-        {/* Hero Content */}
-        <div className="relative z-10 flex flex-col justify-center items-start h-full max-w-7xl mx-auto px-4">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+        <div className="relative z-10 max-w-4xl px-6">
           <motion.h1
-            initial={{ y: 20, opacity: 0 }}
+            initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold leading-tight text-white"
+            transition={{ duration: 0.8 }}
+            className="text-5xl md:text-7xl font-bold text-white"
           >
-            About <span className="text-[#FFD700]">Us</span>
+            About <span className="text-[#FFD700]">SPAD</span>
           </motion.h1>
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-6 text-lg md:text-xl text-white max-w-2xl"
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="mt-4 text-2xl text-gray-200"
           >
-            <strong>SPAD</strong> (Society for People’s Action for Development),
-            founded in 1993, empowers vulnerable communities through grassroots
-            interventions in Karnataka.
+            Empowering communities since 1993
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mt-6 text-lg md:text-xl text-gray-100 max-w-xl"
+          >
+            Building a just and humane society by empowering vulnerable groups
+            through grassroots interventions in Karnataka.
           </motion.p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-8 px-6 py-3 bg-[#FFD700] text-black font-semibold rounded-lg shadow-md hover:bg-yellow-400 transition"
+          >
+            Learn More
+          </motion.button>
         </div>
       </section>
+
+      {/* 🔹 Sections */}
       <Section title="Vision & Mission" imageLeft={true} bg={true}>
         <p className="text-lg text-[#000100]/90 leading-relaxed">
           Creating a just and humane society by empowering vulnerable
           communities to be agents of change.
         </p>
       </Section>
+
       <Section title="Core Values" imageLeft={false} bg={false}>
         <ul className="list-disc list-inside space-y-3 text-lg text-[#000100]/90">
           <li>People have the inherent capacity to change.</li>
@@ -93,6 +109,7 @@ export default function About() {
           <li>Communities should advocate for their rights.</li>
         </ul>
       </Section>
+
       <Section title="Thematic Areas" imageLeft={true} bg={true}>
         <ul className="list-disc list-inside space-y-3 text-lg text-[#000100]/90">
           <li>Public Health</li>
@@ -102,6 +119,7 @@ export default function About() {
           <li>Maternal & Child Health</li>
         </ul>
       </Section>
+
       <Section title="Governance" imageLeft={false} bg={false}>
         <p className="text-lg text-[#000100]/90 leading-relaxed">
           Strategic decisions are made by the Organisation Management Team (OMT).
@@ -109,6 +127,7 @@ export default function About() {
           projects and ensure effective implementation.
         </p>
       </Section>
+
       <Section title="Project Team" imageLeft={true} bg={true}>
         <p className="text-lg text-[#000100]/90 leading-relaxed">
           The senior project team includes 3 members with postgraduate degrees in
@@ -117,6 +136,7 @@ export default function About() {
           Nurses, Doctors, Accounts and Office staff.
         </p>
       </Section>
+
       <Section title="Legal Compliance" imageLeft={false} bg={false}>
         <ul className="list-disc list-inside space-y-3 text-lg text-[#000100]/90">
           <li>A Non-Profit Organization</li>

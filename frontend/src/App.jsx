@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer' 
-
+import './App.css';
 import Home from './pages/Home'
 import About from './pages/About'
 import Impact from './pages/Impact'
@@ -17,7 +17,7 @@ export default function App() {
       <Navbar />
 
       {/* Main content */}
-      <main className="flex-grow px-5 py-8">
+      <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
