@@ -18,54 +18,38 @@ export default function About() {
     bg = null,
     hideImage = false,
   }) => (
-    <section
-      className={`py-20 text-left max-w-6xl mx-auto px-6 mt-12 flex flex-col md:flex-row items-center gap-10 ${
-        bg ? "bg-[#B4C5E4]/30 rounded-4xl" : ""
-      } ${imageLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+    <motion.section
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className={`py-20 text-left max-w-6xl mx-auto px-6 mt-12 flex flex-col md:flex-row items-center gap-10 ${bg ? "bg-[#B4C5E4]/30 rounded-4xl" : ""
+        } ${imageLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
     >
       {/* Only render image if hideImage is false */}
       {!hideImage && (
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex-1 flex justify-center"
-        >
+        <div className="flex-1 flex justify-center">
           <img
             src={stockImage}
             alt={title}
             className="w-full max-w-sm rounded-2xl shadow-lg object-cover hover:scale-105 transition-transform duration-300"
           />
-        </motion.div>
+        </div>
       )}
       <div className="flex-1 text-left">
-        <motion.h2
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-3xl font-bold text-[#000100] mb-4"
-        >
-          {title}
-        </motion.h2>
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {children}
-        </motion.div>
+        {title && (
+          <h2 className="text-3xl font-bold text-[#000100] mb-4">{title}</h2>
+        )}
+        <div>{children}</div>
       </div>
-    </section>
+    </motion.section>
   );
 
   return (
     <main className="bg-[#FBFFF1] min-h-screen">
       <Navbar />
 
-      {/* 🔹 Hero Section */}
+      {/* 🔹 Hero Section (keeps staggered animations) */}
       <section className="relative w-screen h-screen flex items-center">
         <img
           src="/ngoStock.png"
@@ -106,24 +90,12 @@ export default function About() {
 
       {/* 🔹 About SPAD Section */}
       <Section imageLeft={true} bg={false} hideImage={true}>
-        <motion.h2
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-4xl font-bold text-[#000100] mb-8 tracking-tight relative"
-        >
+        <h2 className="text-4xl font-bold text-[#000100] mb-8 tracking-tight relative">
           About SPAD
-        </motion.h2>
+        </h2>
 
         {/* Block 1 */}
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-start gap-6 mb-6"
-        >
+        <div className="flex flex-col md:flex-row items-start gap-6 mb-6">
           <img
             src={stockImage}
             alt="SPAD Image 1"
@@ -138,16 +110,10 @@ export default function About() {
               processes of intervention.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Block 2 */}
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row-reverse items-start gap-6 mb-6"
-        >
+        <div className="flex flex-col md:flex-row-reverse items-start gap-6 mb-6">
           <img
             src={stockImage}
             alt="SPAD Image 2"
@@ -161,16 +127,10 @@ export default function About() {
               and multi-lateral donors.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Block 3 */}
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-start gap-6"
-        >
+        <div className="flex flex-col md:flex-row items-start gap-6">
           <img
             src={stockImage}
             alt="SPAD Image 3"
@@ -188,20 +148,41 @@ export default function About() {
               (CACL-K) and the Karnataka Gramodaya Mission.
             </p>
           </div>
-        </motion.div>
+        </div>
       </Section>
 
       {/* 🔹 Core Values */}
-      <Section title="Core Values" imageLeft={false} bg={true}>
-        <ul className="list-disc list-inside space-y-3 text-lg text-[#000100]/90">
-          <li>People have the inherent capacity to change.</li>
-          <li>Development is a human and collaborative process.</li>
-          <li>Communities should advocate for their rights.</li>
-        </ul>
-      </Section>
+ {/* 🔹 Core Values */}
+<Section title="Core Values" imageLeft={false} bg={true}>
+  <div className="space-y-6 text-lg text-[#000100]/90 leading-relaxed">
+    <p>
+      The basic foundations of social development on which SPAD was built are
+      rooted in the belief that every person and every community has the inherent
+      capacity to transform their own lives.
+    </p>
+    <p>
+      We see development as a deeply human process. One that requires compassion,
+      cooperation, and concerted action to ensure it is truly humane.
+    </p>
+    <p>
+      At the heart of SPAD’s work is the commitment to empower poor and vulnerable
+      communities with the skills and confidence to come together, form strong
+      groups, and stand up for their rights through collective action.
+    </p>
+  </div>
+</Section>
+
+
+
 
       {/* 🔹 Thematic Areas with Background */}
-      <section className="relative h-screen w-screen py-20 mt-20">
+      <motion.section
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="relative h-screen w-screen py-20 mt-20"
+      >
         <img
           src="/ngoStock.png"
           alt="Thematic Areas Background"
@@ -209,30 +190,18 @@ export default function About() {
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-          <motion.h2
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-white mb-8"
-          >
+          <h2 className="text-4xl font-bold text-white mb-8">
             <span className="text-white">Thematic</span> Areas
-          </motion.h2>
-          <motion.ul
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="list-disc list-inside space-y-4 text-lg text-gray-100 leading-relaxed"
-          >
+          </h2>
+          <ul className="list-disc list-inside space-y-4 text-lg text-gray-100 leading-relaxed">
             <li>Public Health</li>
             <li>Child Development</li>
             <li>Skill Development</li>
             <li>Community Development</li>
             <li>Maternal & Child Health</li>
-          </motion.ul>
+          </ul>
         </div>
-      </section>
+      </motion.section>
 
       {/* 🔹 Governance */}
       <Section title="Governance" imageLeft={false} bg={false}>
