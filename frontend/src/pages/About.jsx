@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
+import AboutNavbar from "./AboutNavbar";
 
 export default function About() {
   const stockImage = "/ngoStock.png"; // same stock image for all sections
@@ -12,6 +13,7 @@ export default function About() {
   };
 
   const Section = ({
+    id,
     title,
     children,
     imageLeft = true,
@@ -19,12 +21,14 @@ export default function About() {
     hideImage = false,
   }) => (
     <motion.section
+      id={id}
       variants={fadeInUp}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className={`py-20 text-left max-w-6xl mx-auto px-6 mt-12 flex flex-col md:flex-row items-center gap-10 ${bg ? "bg-[#B4C5E4]/30 rounded-4xl" : ""
-        } ${imageLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+      className={`py-20 text-left max-w-6xl mx-auto px-6 mt-0 flex flex-col md:flex-row items-center gap-10 ${
+        bg ? "bg-[#B4C5E4]/30 rounded-4xl" : ""
+      } ${imageLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
     >
       {/* Only render image if hideImage is false */}
       {!hideImage && (
@@ -49,7 +53,7 @@ export default function About() {
     <main className="bg-[#FBFFF1] min-h-screen">
       <Navbar />
 
-      {/* 🔹 Hero Section (keeps staggered animations) */}
+      {/* 🔹 Hero Section */}
       <section className="relative w-screen h-screen flex items-center">
         <img
           src="/ngoStock.png"
@@ -88,8 +92,11 @@ export default function About() {
         </div>
       </section>
 
+      {/* ✅ Sub-navbar for About page */}
+      <AboutNavbar />
+
       {/* 🔹 About SPAD Section */}
-      <Section imageLeft={true} bg={false} hideImage={true}>
+      <Section id="about-spad" imageLeft={true} bg={false} hideImage={true} mt-0>
         <h2 className="text-4xl font-bold text-[#000100] mb-8 tracking-tight relative">
           About SPAD
         </h2>
@@ -152,31 +159,30 @@ export default function About() {
       </Section>
 
       {/* 🔹 Core Values */}
- {/* 🔹 Core Values */}
-<Section title="Core Values" imageLeft={false} bg={true}>
-  <div className="space-y-6 text-lg text-[#000100]/90 leading-relaxed">
-    <p>
-      The basic foundations of social development on which SPAD was built are
-      rooted in the belief that every person and every community has the inherent
-      capacity to transform their own lives.
-    </p>
-    <p>
-      We see development as a deeply human process. One that requires compassion,
-      cooperation, and concerted action to ensure it is truly humane.
-    </p>
-    <p>
-      At the heart of SPAD’s work is the commitment to empower poor and vulnerable
-      communities with the skills and confidence to come together, form strong
-      groups, and stand up for their rights through collective action.
-    </p>
-  </div>
-</Section>
+      <Section id="core-values" title="Core Values" imageLeft={false} bg={true}>
+        <div className="space-y-6 text-lg text-[#000100]/90 leading-relaxed">
+          <p>
+            The basic foundations of social development on which SPAD was built
+            are rooted in the belief that every person and every community has
+            the inherent capacity to transform their own lives.
+          </p>
+          <p>
+            We see development as a deeply human process. One that requires
+            compassion, cooperation, and concerted action to ensure it is truly
+            humane.
+          </p>
+          <p>
+            At the heart of SPAD’s work is the commitment to empower poor and
+            vulnerable communities with the skills and confidence to come
+            together, form strong groups, and stand up for their rights through
+            collective action.
+          </p>
+        </div>
+      </Section>
 
-
-
-
-      {/* 🔹 Thematic Areas with Background */}
+      {/* 🔹 Thematic Areas */}
       <motion.section
+        id="thematic-areas"
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
@@ -204,16 +210,34 @@ export default function About() {
       </motion.section>
 
       {/* 🔹 Governance */}
-      <Section title="Governance" imageLeft={false} bg={false}>
-        <p className="text-lg text-[#000100]/90 leading-relaxed">
-          Strategic decisions are made by the Organisation Management Team (OMT).
-          The Chief Functionary holds final accountability. Managers oversee
-          projects and ensure effective implementation.
-        </p>
+      <Section id="governance" title="Governance" imageLeft={false} bg={false}>
+        <div className="space-y-6 text-lg text-[#000100]/90 leading-relaxed">
+          <p>
+            All strategic decisions are made by the Organisation Management Team
+            (OMT) through democratic practices of open debate and adopting the
+            majority view.
+          </p>
+          <p>
+            Responsibilities within the OMT are distributed according to each
+            member’s professional expertise and experience. However, final
+            accountability rests with the Chief Functionary, who also heads the
+            OMT.
+          </p>
+          <p>
+            Each project is overseen by a manager, usually a member of the OMT,
+            who monitors operations, provides inputs, and carries out managerial
+            functions.
+          </p>
+          <p>
+            The OMT also plays a central role in shaping methodologies,
+            designing tactical interventions, and guiding the overall strategy
+            of both SPAD and its specific projects.
+          </p>
+        </div>
       </Section>
 
       {/* 🔹 Project Team */}
-      <Section title="Project Team" imageLeft={true} bg={true}>
+      <Section id="project-team" title="Project Team" imageLeft={true} bg={true}>
         <p className="text-lg text-[#000100]/90 leading-relaxed">
           The senior project team includes 3 members with postgraduate degrees
           in Social Work and over 90 years of combined experience. SPAD’s team
@@ -223,7 +247,12 @@ export default function About() {
       </Section>
 
       {/* 🔹 Legal Compliance */}
-      <Section title="Legal Compliance" imageLeft={false} bg={false}>
+      <Section
+        id="legal-compliance"
+        title="Legal Compliance"
+        imageLeft={false}
+        bg={false}
+      >
         <ul className="list-disc list-inside space-y-3 text-lg text-[#000100]/90">
           <li>A Non-Profit Organization</li>
           <li>Registered under Sec. 12(A) of IT Act</li>
